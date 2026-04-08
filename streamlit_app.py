@@ -16,14 +16,24 @@ session = cnx.session()
 
 my_dataframe = session.table("ZENAS_ATHLEISURE_DB.products.catalog_for_website").select(col('color_or_style'))
 
-colors_list = st.multiselect(
+colors = st.multiselect(
     'Pick a sweatsuit color or style:'
     , my_dataframe 
     , max_selections = 1
 )
 
-#if colors_list:
-    
+my_dataframe = session.table("ZENAS_ATHLEISURE_DB.products.catalog_for_website")
+pd_df = my_dataframe.to_pandas()
+
+if color:
+    file_url = pd_df.loc[pd_df['color_or_style'] == color, 'FILE_URL'].iloc[0]
+    st.write('The file url for ', color,' is ', file_url, '.')
+
+    url_response = requests.get(file_url)  
+    st.text(url_response.json())
+    sf_df = st.dataframe(data=url_response.json(), use_container_width=True)
+
+st.write("""Our warm, comfortable, {colors_list} sweatsuit!""")
 
 #st.dataframe(data=my_dataframe, use_container_width=True)
 #st.stop()
