@@ -15,7 +15,7 @@ my_dataframe = session.table("ZENAS_ATHLEISURE_DB.products.catalog_for_website")
 color = st.selectbox(
     'Pick a sweatsuit color or style:'
     , my_dataframe 
-    , index=None,
+    , index=None
     , placeholder="Select a color"
 )
 
