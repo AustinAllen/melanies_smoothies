@@ -15,7 +15,7 @@ my_dataframe = session.table("ZENAS_ATHLEISURE_DB.products.catalog_for_website")
 color = st.multiselect(
     'Pick a sweatsuit color or style:'
     , my_dataframe 
-    , max_selections = 1
+    , max_selections = 2
 )
 
 st.write(color)
