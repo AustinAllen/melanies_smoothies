@@ -16,7 +16,7 @@ session = cnx.session()
 
 my_dataframe = session.table("ZENAS_ATHLEISURE_DB.products.catalog_for_website").select(col('color_or_style'))
 
-colors = st.multiselect(
+color = st.multiselect(
     'Pick a sweatsuit color or style:'
     , my_dataframe 
     , max_selections = 1
