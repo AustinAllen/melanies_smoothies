@@ -32,8 +32,9 @@ if color:
     url_response = requests.get(file_url)  
     st.text(url_response.json())
     sf_df = st.dataframe(data=url_response.json(), use_container_width=True)
+    st.write("""Our warm, comfortable, {color} sweatsuit!""")
 
-st.write("""Our warm, comfortable, {colors_list} sweatsuit!""")
+
 
 #st.dataframe(data=my_dataframe, use_container_width=True)
 #st.stop()
