@@ -6,10 +6,6 @@ import requests
 
 # Write directly to the app.
 st.title(f"Zena's Amazing Athleisure Catalog")
-st.write(
-  """Pick a sweatsuit color or style:
-  """
-)
 
 cnx = st.connection("snowflake")
 session = cnx.session()
@@ -21,6 +17,8 @@ color = st.multiselect(
     , my_dataframe 
     , max_selections = 1
 )
+
+st.write(color)
 
 my_dataframe = session.table("ZENAS_ATHLEISURE_DB.products.catalog_for_website")
 pd_df = my_dataframe.to_pandas()
