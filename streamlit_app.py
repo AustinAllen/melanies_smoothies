@@ -12,10 +12,9 @@ session = cnx.session()
 
 my_dataframe = session.table("ZENAS_ATHLEISURE_DB.products.catalog_for_website").select(col('color_or_style'))
 
-color = st.multiselect(
+color = st.selectbox(
     'Pick a sweatsuit color or style:'
     , my_dataframe 
-    , max_selections = 2
 )
 
 st.write(color)
